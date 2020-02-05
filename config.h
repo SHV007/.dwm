@@ -79,7 +79,7 @@ static Key keys[] = {
 	{ Mod4Mask, 					XK_l, 	   spawn, 		   {.v = lock } },
 	{ Mod4Mask, 					XK_f,      spawn,          {.v = browser } },
 	{ Mod4Mask, 					XK_c,      spawn,          {.v = brow } },
-	{ Mod4Mask, 					XK_r,      spawn, 		   SHCMD("st -e sudo ranger") },
+	{ Mod4Mask, 					XK_r,      spawn, 		   SHCMD("st -e sudo fff") },
 	{ Mod4Mask, 					XK_n,      spawn, 		   SHCMD("st -e sudo nnn") },
 	{ Mod4Mask, 					XK_v,      spawn, 		   SHCMD("st -e vim") },
 	{ Mod4Mask|ShiftMask, 			XK_p, 	   spawn, 		   SHCMD("st -e poweroff") },
