@@ -57,7 +57,7 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *termcmd[]  = { "st", NULL };
+static const char *termcmd[]  = { "urxvt", NULL };
 static const char *browser[] = { "firefox", NULL}; 
 static const char *screenshot[] = { "flameshot gui", NULL};
 static const char *brow[] = { "chromium", NULL}; 
@@ -75,14 +75,14 @@ static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
-	{ Mod4Mask, 					XK_l, 	   spawn, 		   SHCMD("st -e xset dpms force off && slock")},
+	{ Mod4Mask, 					XK_l, 	   spawn, 		   SHCMD("urxvt -e xset dpms force off && slock")},
 	{ Mod4Mask, 					XK_f,      spawn,          {.v = browser } },
 	{ Mod4Mask, 					XK_c,      spawn,          {.v = brow } },
-	{ Mod4Mask, 					XK_r,      spawn, 		   SHCMD("st -e sudo fff") },
-	{ Mod4Mask, 					XK_n,      spawn, 		   SHCMD("st -e sudo nnn") },
-	{ Mod4Mask, 					XK_v,      spawn, 		   SHCMD("st -e vim") },
-	{ Mod4Mask|ShiftMask, 			XK_p, 	   spawn, 		   SHCMD("st -e poweroff") },
-	{ Mod4Mask|ShiftMask, 			XK_r, 	   spawn, 		   SHCMD("st -e reboot") },
+	{ Mod4Mask, 					XK_r,      spawn, 		   SHCMD("urxvt -e sudo fff") },
+	{ Mod4Mask, 					XK_n,      spawn, 		   SHCMD("urxvt -e sudo nnn") },
+	{ Mod4Mask, 					XK_v,      spawn, 		   SHCMD("urxvt -e vim") },
+	{ Mod4Mask|ShiftMask, 			XK_p, 	   spawn, 		   SHCMD("urxvt -e poweroff") },
+	{ Mod4Mask|ShiftMask, 			XK_r, 	   spawn, 		   SHCMD("urxvt -e reboot") },
 	{ 0, 							XK_Print,  spawn,          {.v = screenshot } },
 	{ Mod4Mask, 					XK_Prior,  spawn, 		   {.v = upvol } },
 	{ Mod4Mask, 					XK_Next,   spawn, 		   {.v = downvol } },
