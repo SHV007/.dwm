@@ -57,10 +57,15 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *termcmd[]  = { "urxvt", NULL };
+static const char *termcmd[]  = { "st", NULL };
 static const char *browser[] = { "firefox", NULL}; 
-static const char *screenshot[] = { "flameshot gui", NULL};
+static const char *screenshot[] = { "flameshotgui", NULL};
 static const char *brow[] = { "chromium", NULL}; 
+static const char *zoo[] = { "zoom", NULL}; 
+static const char *organize[] = { "osmo", NULL}; 
+static const char *rdp[] = { "remmina", NULL}; 
+static const char *ssh[] = { "putty", NULL}; 
+static const char *sla[] = { "slack", NULL}; 
 static const char *upvol[] = { "/usr/bin/pactl", "set-sink-volume", "alsa_output.pci-0000_00_1b.0.analog-stereo", "+5%", NULL };
 static const char *downvol[] = {"/usr/bin/pactl", "set-sink-volume", "alsa_output.pci-0000_00_1b.0.analog-stereo", "-5%", NULL }; 
 
@@ -75,14 +80,18 @@ static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
-	{ Mod4Mask, 					XK_l, 	   spawn, 		   SHCMD("urxvt -e xset dpms force off && slock")},
+	{ Mod4Mask, 					XK_l, 	   spawn, 		   SHCMD("st -e xset dpms force off && slock")},
 	{ Mod4Mask, 					XK_f,      spawn,          {.v = browser } },
+	{ Mod4Mask, 					XK_z,      spawn,          {.v = zoo } },
+	{ Mod4Mask, 					XK_o,      spawn,          {.v = organize } },
 	{ Mod4Mask, 					XK_c,      spawn,          {.v = brow } },
-	{ Mod4Mask, 					XK_r,      spawn, 		   SHCMD("urxvt -e sudo fff") },
-	{ Mod4Mask, 					XK_n,      spawn, 		   SHCMD("urxvt -e sudo nnn") },
-	{ Mod4Mask, 					XK_v,      spawn, 		   SHCMD("urxvt -e vim") },
-	{ Mod4Mask|ShiftMask, 			XK_p, 	   spawn, 		   SHCMD("urxvt -e poweroff") },
-	{ Mod4Mask|ShiftMask, 			XK_r, 	   spawn, 		   SHCMD("urxvt -e reboot") },
+	{ Mod4Mask, 					XK_r,      spawn, 		   {.v = rdp } }, 
+	{ Mod4Mask, 					XK_p,      spawn, 		   {.v = ssh } }, 
+	{ Mod4Mask, 					XK_s,      spawn, 		   {.v = sla } }, 
+	{ Mod4Mask, 					XK_n,      spawn, 		   SHCMD("st -e nnn") },
+	{ Mod4Mask, 					XK_v,      spawn, 		   SHCMD("st -e vim") },
+	{ Mod4Mask|ShiftMask, 			XK_p, 	   spawn, 		   SHCMD("st -e poweroff") },
+	{ Mod4Mask|ShiftMask, 			XK_r, 	   spawn, 		   SHCMD("st -e reboot") },
 	{ 0, 							XK_Print,  spawn,          {.v = screenshot } },
 	{ Mod4Mask, 					XK_Prior,  spawn, 		   {.v = upvol } },
 	{ Mod4Mask, 					XK_Next,   spawn, 		   {.v = downvol } },
